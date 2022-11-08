@@ -40,8 +40,6 @@ const Characters: React.FC = () => {
     [fetchCharacters, search],
   );
 
-  const MyLoader = () => <ContentLoader />;
-
   return (
     <>
       <Header />

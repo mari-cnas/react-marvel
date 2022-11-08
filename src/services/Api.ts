@@ -3,7 +3,7 @@ import axios from 'axios';
 import Config from 'Config';
 
 const Api = axios.create({
-  baseURL: 'http://gateway.marvel.com/v1/public/',
+  baseURL: Config.api.baseUrl,
 });
 
 Api.interceptors.request.use((config) => {
