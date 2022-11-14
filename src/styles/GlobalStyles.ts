@@ -1,11 +1,11 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 * {
     margin:0;
     padding:0;
     box-sizing: border-box;
-    //height:100vh;
+  
   /* unvisited link */
   a:link {
     color: grey;
@@ -28,8 +28,16 @@ export default createGlobalStyle`
   }
 }
 
+html,body,#root{
+    min-height: 100vh;
+}
+
 
 
 //bootstrap overrides
 
+`;
+
+export const LoadingDiv = styled.div`
+  min-height: 100vh;
 `;

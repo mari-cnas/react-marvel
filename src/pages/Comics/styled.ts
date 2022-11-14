@@ -37,3 +37,7 @@ export const MarvelPaginate = styled(ReactPaginate)`
     color: white;
   }
 `;
+export const SearchInput = styled.input`
+  border-width: 2px;
+  border-radius: 5px;
+`;

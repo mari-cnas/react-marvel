@@ -1,6 +1,6 @@
 import { memo, useEffect } from 'react';
 
-import { Spinner } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 import { useCharacters } from 'context/CharactersContext';
@@ -11,6 +11,8 @@ import Header from 'components/Header';
 import { getImageUrl } from 'helpers';
 
 import useTitle from 'hooks/useTitle';
+
+import { LoadingDiv } from 'styles/GlobalStyles';
 
 import {
   CharacterBg,
@@ -39,9 +41,11 @@ const Character: React.FC = () => {
       <Header />
 
       {isLoading && (
-        <div className="text-center">
-          <Spinner animation="grow" variant="primary" />
-        </div>
+        <Container>
+          <LoadingDiv className="d-flex aling-items-center justify-content-center">
+            <Spinner animation="grow" variant="primary" className="my-auto" />
+          </LoadingDiv>
+        </Container>
       )}
       {!isLoading && character && (
         <>

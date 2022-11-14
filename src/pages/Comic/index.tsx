@@ -12,6 +12,8 @@ import { getImageUrl } from 'helpers';
 
 import useTitle from 'hooks/useTitle';
 
+import { LoadingDiv } from 'styles/GlobalStyles';
+
 import {
   ComicBg,
   ComicDiv,
@@ -28,7 +30,7 @@ const Comic: React.FC = () => {
   const setTitle = useTitle();
 
   useEffect(() => {
-    setTitle(`${comic?.id} | Characters`);
+    setTitle(`${comic?.id} | Comics`);
   }, [comic?.id, setTitle]);
 
   useEffect(() => {
@@ -41,9 +43,9 @@ const Comic: React.FC = () => {
       <Header />
 
       {isLoading && (
-        <div className="text-center">
-          <Spinner animation="grow" variant="primary" />
-        </div>
+        <LoadingDiv className="d-flex aling-items-center justify-content-center">
+          <Spinner animation="grow" variant="primary" className="my-auto" />
+        </LoadingDiv>
       )}
       {!isLoading && comic && (
         <ComicBg
@@ -72,28 +74,38 @@ const Comic: React.FC = () => {
                 </Row>
 
                 <Issue className="d-flex px-4 py-4 my-5">
-                  <Form.Group
-                    className="mb-3 col-md-4 px-5 "
-                    controlId="formBasicEmail"
-                  >
-                    <h5>PRINT ISSUE</h5>
-                    <p>In Stores Now</p>
-                    <Form.Control type="number" placeholder="Enter zip code" />
+                  <Row>
+                    <Col className="d-flex">
+                      <Form.Group
+                        className="mb-3 col-md-4 px-5 w-100 "
+                        controlId="formBasicEmail"
+                      >
+                        <h5>PRINT ISSUE</h5>
+                        <p>In Stores Now</p>
+                        <Form.Control
+                          type="number"
+                          placeholder="Enter zip code"
+                        />
 
-                    <Button
-                      variant="primary"
-                      type="submit"
-                      className="bg-transparent my-2"
-                    >
-                      Find a store
-                    </Button>
-                  </Form.Group>
-
-                  <div className="mb-3 col-md-6 border-start px-5">
-                    <h5>DIGITAL ISSUE</h5>
-                    <p>Read online or on you iPhone, iPad or Android Device</p>
-                    <p>Digital issue is not currently available</p>
-                  </div>
+                        <Button
+                          variant="danger"
+                          type="submit"
+                          className=" my-2"
+                        >
+                          Find a store
+                        </Button>
+                      </Form.Group>
+                    </Col>
+                    <Col className="d-flex">
+                      <div className="mb-3 col-md-6 border-start px-5 w-100">
+                        <h5>DIGITAL ISSUE</h5>
+                        <p>
+                          Read online or on you iPhone, iPad or Android Device
+                        </p>
+                        <p>Digital issue is not currently available</p>
+                      </div>
+                    </Col>
+                  </Row>
                 </Issue>
               </ComicDiv>
             </Container>

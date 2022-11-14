@@ -1,7 +1,8 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 
-import { Col, Container, Row, Spinner } from 'react-bootstrap';
-import ContentLoader from 'react-content-loader';
+import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { FaSearch } from 'react-icons/fa';
+import { MdCleaningServices } from 'react-icons/md';
 
 import { useCharacters } from 'context/CharactersContext';
 
@@ -11,7 +12,9 @@ import Header from 'components/Header';
 
 import useTitle from 'hooks/useTitle';
 
-import { MarvelPaginate } from './styled';
+import { LoadingDiv } from 'styles/GlobalStyles';
+
+import { MarvelPaginate, SearchInput } from './styled';
 
 const Characters: React.FC = () => {
   const {
@@ -45,38 +48,49 @@ const Characters: React.FC = () => {
       <Header />
       <Container>
         {isLoading && (
-          <>
-            <div className="d-flex aling-items-center justify-content-center">
-              <Spinner animation="grow" variant="primary" className="my-5" />
-            </div>
-            <div>
-              <ContentLoader viewBox="0 0 380 70" className="my-5">
-                {/* Only SVG shapes */}
-                {/* <rect x="0" y="0" rx="5" ry="5" width="70" height="70" /> */}
-                <rect x="0" y="15" rx="4" ry="4" width="50" height="80" />
-                <rect x="90" y="15" rx="3" ry="3" width="50" height="80" />
-                <rect x="150" y="15" rx="3" ry="3" width="50" height="80" />
-                <rect x="250" y="15" rx="3" ry="3" width="50" height="80" />
-              </ContentLoader>
-            </div>
-          </>
+          <LoadingDiv className="d-flex aling-items-center justify-content-center">
+            <Spinner animation="grow" variant="primary" className="my-auto" />
+          </LoadingDiv>
         )}
         {error && <p style={{ color: 'red' }}>{error}</p>}
 
         {!isLoading && !error && (
-          <div className="d-flex flex-column my-5">
-            <h2>FEATURED CHARACTERS</h2>
-            <div className="d-flex justify-content-end">
-              <input
-                type="text"
-                placeholder="Buscar"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <button type="button" onClick={handleSearch}>
-                Buscar
-              </button>
-            </div>
+          <div className="d-flex flex-column my-5 ">
+            <Row className="align-items-center">
+              <Col className="d-flex justify-content-center justify-content-md-start col-12 col-md-6">
+                <h2>FEATURED CHARACTERS</h2>
+              </Col>
+              <Col className="col-12 col-md-6">
+                <div className="d-flex justify-content-center justify-content-md-end ">
+                  <SearchInput
+                    type="text"
+                    placeholder="Buscar"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="px-1 mx-1"
+                  />
+                  <div className="d-flex flex-column flex-sm-row">
+                    <Button
+                      variant="danger"
+                      type="button"
+                      onClick={handleSearch}
+                      className="me-1"
+                    >
+                      <FaSearch />
+                    </Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => setSearch('')}
+                      type="button"
+                      className="me-1"
+                    >
+                      <MdCleaningServices />
+                    </Button>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+
             <Row xs={1} md={4} className=" g-3 justify-content-center">
               {characters.map((character) => (
                 <Col key={character.id} className="d-flex ">

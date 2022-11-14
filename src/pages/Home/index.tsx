@@ -27,35 +27,35 @@ const Home: React.FC = () => {
   return (
     <>
       <Header />
+      <section className="d-flex justify-content-center">
+        <Carousel className="d-flex">
+          <Carousel.Item className="justify-content-center">
+            <img className="d-block " src={carousel1} alt="First slide" />
+            <Carousel.Caption>
+              <h3>This week&#x27;s new comics</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block " src={carousel2} alt="Second slide" />
 
-      <Carousel>
-        <Carousel.Item>
-          <img className="d-block w-100" src={carousel1} alt="First slide" />
-          <Carousel.Caption>
-            <h3>This week&#x27;s new comics</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-100" src={carousel2} alt="Second slide" />
+            <Carousel.Caption>
+              <h3>Assembled</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block " src={carousel3} alt="Third slide" />
 
-          <Carousel.Caption>
-            <h3>Assembled</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-100" src={carousel3} alt="Third slide" />
-
-          <Carousel.Caption>
-            <h3>Black Panther</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-
+            <Carousel.Caption>
+              <h3>Black Panther</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      </section>
       <Footer />
     </>
   );

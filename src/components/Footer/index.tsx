@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
   return (
     <FooterBg>
       <Container>
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 my-5 ">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 mt-5 ">
           <div className="col ">
             <a
               href="/"
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="col ">
             <p>FOLLOW MARVEL</p>
-            <ul className="list-unstyled">
+            <ul className="list-unstyled d-flex flex-md-column">
               <li>
                 <a href="www.google.com">
                   <TiSocialTwitter />
