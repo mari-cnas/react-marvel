@@ -30,7 +30,7 @@ const Home: React.FC = () => {
       <section className="d-flex justify-content-center">
         <Carousel className="d-flex">
           <Carousel.Item className="justify-content-center">
-            <img className="d-block " src={carousel1} alt="First slide" />
+            <img className="d-block img-fluid" src={carousel1} alt="First slide" />
             <Carousel.Caption>
               <h3>This week&#x27;s new comics</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
