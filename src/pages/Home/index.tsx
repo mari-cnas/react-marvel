@@ -37,7 +37,7 @@ const Home: React.FC = () => {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block " src={carousel2} alt="Second slide" />
+            <img className="d-block img-fluid" src={carousel2} alt="Second slide" />
 
             <Carousel.Caption>
               <h3>Assembled</h3>
@@ -45,7 +45,7 @@ const Home: React.FC = () => {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block " src={carousel3} alt="Third slide" />
+            <img className="d-block img-fluid" src={carousel3} alt="Third slide" />
 
             <Carousel.Caption>
               <h3>Black Panther</h3>
