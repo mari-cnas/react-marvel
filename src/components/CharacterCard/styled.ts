@@ -8,13 +8,34 @@ interface ICoverProps {
 
 export const ColoredCard = styled.div`
   background-size: 100% 200%;
-  background-image: linear-gradient(to bottom, black 50%, red 50%);
+  background-image: linear-gradient(to bottom, rgb(32, 35, 41) 50%, red 50%);
   -webkit-transition: background-position 0.5s;
   -moz-transition: background-position 0.5s;
   transition: background-position 0.5s;
 
   &:hover {
     background-position: 0 -100%;
+  }
+
+  /* unvisited link */
+  a:link {
+    color: white;
+    text-decoration: none;
+  }
+
+  /* visited link */
+  a:visited {
+    color: white;
+  }
+
+  /* mouse over link */
+  a:hover {
+    color: white;
+  }
+
+  /* selected link */
+  a:active {
+    color: white;
   }
 `;
 export const CharacterImage = styled(Ratio)<ICoverProps>`

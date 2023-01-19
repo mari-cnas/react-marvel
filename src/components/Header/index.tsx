@@ -9,7 +9,9 @@ const Header: React.FC = () => {
   return (
     <HeaderBg className="d-flex flex-column">
       <div className="d-flex justify-content-center border-bottom">
-        <img src={logo} alt="logo" width="127px" />
+        <Nav.Link href="/">
+          <img src={logo} alt="logo" width="127px" />
+        </Nav.Link>
       </div>
       <Container>
         <Navbar
@@ -19,7 +21,6 @@ const Header: React.FC = () => {
         >
           <Nav>
             <div className=" d-flex">
-              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/characters">Characters</Nav.Link>
               <Nav.Link href="/comics">Comics</Nav.Link>
             </div>

@@ -6,26 +6,7 @@ export default createGlobalStyle`
     padding:0;
     box-sizing: border-box;
   
-  /* unvisited link */
-  a:link {
-    color: grey;
-    text-decoration: none;
-  }
 
-  /* visited link */
-  a:visited {
-    color: grey;
-  }
-
-  /* mouse over link */
-  a:hover {
-    color: white;
-  }
-
-  /* selected link */
-  a:active {
-    color: blue;
-  }
 }
 
 html,body,#root{
@@ -33,11 +14,19 @@ html,body,#root{
 }
 
 
-
-//bootstrap overrides
+footer {
+    margin-top: auto;
+   
+} 
 
 `;
 
 export const LoadingDiv = styled.div`
   min-height: 100vh;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 `;

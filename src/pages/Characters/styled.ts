@@ -1,15 +1,10 @@
-import { Container } from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import styled from 'styled-components';
 
-export const CharacterContainer = styled(Container)`
-  background-color: #add8e6;
+export const CharactersBg = styled.div`
+  background-color: black;
   display: flex;
-`;
-
-export const Background = styled.div`
-  background-color: rgb(32, 35, 41);
-  display: flex;
+  color: white;
 `;
 
 export const CharacterName = styled.h1`

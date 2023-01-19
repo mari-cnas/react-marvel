@@ -1,10 +1,12 @@
 import { memo } from 'react';
 
 import { Container } from 'react-bootstrap';
+import { AiFillYoutube } from 'react-icons/ai';
+import { BsPinterest, BsSnapchat } from 'react-icons/bs';
+import { FaTumblr } from 'react-icons/fa';
 import {
   TiSocialInstagram,
   TiSocialTwitter,
-  TiSocialGithub,
   TiSocialFacebook,
 } from 'react-icons/ti';
 
@@ -23,7 +25,6 @@ const Footer: React.FC = () => {
             >
               <img src={logo} alt="logo" />
             </a>
-            <p className="text-muted">&copy; 2022</p>
           </div>
 
           <div className="col ">
@@ -52,26 +53,61 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           <div className="col ">
-            <p>FOLLOW MARVEL</p>
-            <ul className="list-unstyled d-flex flex-md-column">
+            <p className="mb-2">FOLLOW MARVEL</p>
+            <ul className="list-unstyled d-flex justify-content-between">
               <li>
-                <a href="www.google.com">
-                  <TiSocialTwitter />
+                <a
+                  href="http://twitter.com/marvel"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <TiSocialTwitter size={25} />
                 </a>
               </li>
               <li>
-                <a href="www.google.com">
-                  <TiSocialInstagram />
+                <a
+                  href="http://instagram.com/marvel"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <TiSocialInstagram size={25} />
                 </a>
               </li>
               <li>
-                <a href="www.google.com">
-                  <TiSocialFacebook />
+                <a
+                  href="http://facebook.com/marvel"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <TiSocialFacebook size={25} />
                 </a>
               </li>
               <li>
-                <a href="www.google.com">
-                  <TiSocialGithub />
+                <a
+                  href="https://www.pinterest.com/marvelofficial"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <BsPinterest size={25} />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://youtube.com/marvel"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <AiFillYoutube size={25} />
+                </a>
+              </li>
+              <li>
+                <a href="http://marvelentertainment.tumblr.com/">
+                  <FaTumblr size={25} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.snapchat.com/add/marvelhq">
+                  <BsSnapchat size={25} />
                 </a>
               </li>
             </ul>
