@@ -58,7 +58,11 @@ const Characters: React.FC = () => {
         <Container>
           {isLoading && (
             <LoadingDiv className="d-flex aling-items-center justify-content-center">
-              <Spinner animation="grow" variant="primary" className="my-auto" />
+              <Spinner
+                animation="border"
+                variant="danger"
+                className="my-auto"
+              />
             </LoadingDiv>
           )}
           {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -78,7 +82,7 @@ const Characters: React.FC = () => {
                       onChange={(e) => setSearch(e.target.value)}
                       className="px-1 mx-1"
                     />
-                    <div className="d-flex flex-column flex-sm-row">
+                    <div className="d-flex ">
                       <Button
                         variant="danger"
                         type="button"
@@ -102,7 +106,13 @@ const Characters: React.FC = () => {
                 </Col>
               </Row>
 
-              <Row xs={1} md={4} lg={5} className=" g-3 justify-content-center">
+              <Row
+                xs={1}
+                sm={2}
+                md={3}
+                lg={4}
+                className=" g-3 justify-content-center"
+              >
                 {characters.map((character) => (
                   <Col key={character.id} className="d-flex ">
                     <CharacterCard character={character} />

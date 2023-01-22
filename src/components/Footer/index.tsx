@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { AiFillYoutube } from 'react-icons/ai';
 import { BsPinterest, BsSnapchat } from 'react-icons/bs';
 import { FaTumblr } from 'react-icons/fa';
@@ -17,42 +17,41 @@ const Footer: React.FC = () => {
   return (
     <FooterBg>
       <Container>
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 mt-5 ">
-          <div className="col ">
+        <Row xs={1} md={2} lg={5} className="mt-5 justify-content-center">
+          <Col className="d-flex justify-content-center justify-content-lg-start">
             <a
               href="/"
               className="d-flex align-items-center mb-3 link-dark text-decoration-none"
             >
               <img src={logo} alt="logo" />
             </a>
-          </div>
+          </Col>
 
-          <div className="col ">
+          <Col className="d-flex justify-content-center justify-content-lg-start text-center text-lg-start">
             <ul className="nav flex-column">
               <li className="nav-item mb-2">ABOUT MARVEL</li>
               <li className="nav-item mb-2">HELP/FAQS</li>
               <li className="nav-item mb-2">CAREERS</li>
               <li className="nav-item mb-2">INTERNSHIPS</li>
             </ul>
-          </div>
-
-          <div className="col ">
+          </Col>
+          <Col className="d-flex justify-content-center justify-content-lg-start text-center text-lg-start">
             <ul className="nav flex-column">
               <li className="nav-item mb-2">ADVERTISING</li>
               <li className="nav-item mb-2">DISNEY+</li>
               <li className="nav-item mb-2">MARVELHQ.COM</li>
               <li className="nav-item mb-2">REDEEM DIGITAL COMICS</li>
             </ul>
-          </div>
-          <div className="col ">
+          </Col>
+          <Col className="d-flex justify-content-center justify-content-lg-start text-center text-lg-start">
             <ul className="nav flex-column">
               <li className="nav-item mb-2">MARVEL INSIDER</li>
               <li className="nav-item mb-2">Get rewarded</li>
               <li className="nav-item mb-2">MARVEL UNLIMITED</li>
               <li className="nav-item mb-2">Acess over 30,000+ comics</li>
             </ul>
-          </div>
-          <div className="col ">
+          </Col>
+          <Col className="d-flex flex-column justify-content-center justify-content-lg-start text-center text-lg-start mt-md-3 mt-lg-0">
             <p className="mb-2">FOLLOW MARVEL</p>
             <ul className="list-unstyled d-flex justify-content-between">
               <li>
@@ -111,8 +110,8 @@ const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </Container>
     </FooterBg>
   );

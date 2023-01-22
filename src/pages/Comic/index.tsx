@@ -15,10 +15,12 @@ import useTitle from 'hooks/useTitle';
 import { LoadingDiv } from 'styles/GlobalStyles';
 
 import {
+  ComicBanner,
   ComicBg,
   ComicDiv,
   ComicImage,
   ComicName,
+  DigitalDiv,
   Issue,
   StyledDiv,
   StyledSection,
@@ -44,17 +46,17 @@ const Comic: React.FC = () => {
 
       {isLoading && (
         <LoadingDiv className="d-flex aling-items-center justify-content-center">
-          <Spinner animation="grow" variant="primary" className="my-auto" />
+          <Spinner animation="border" variant="danger" className="my-auto" />
         </LoadingDiv>
       )}
       {!isLoading && comic && (
-        <ComicBg
+        <ComicBanner
           coverimage={getImageUrl(comic.thumbnail)}
           className="d-flex flex-grow-1"
         >
           <StyledDiv className="w-100">
             <Container className="d-flex  align-items-center ">
-              <ComicDiv className="d-flex flex-column">
+              <ComicDiv className="d-flex flex-column w-100">
                 <Row>
                   <Col className="d-flex" md={4}>
                     <ComicImage
@@ -66,25 +68,28 @@ const Comic: React.FC = () => {
                     </ComicImage>
                   </Col>
                   <Col md={5}>
-                    <ComicName>{comic?.title ?? 'Loading...'}</ComicName>
+                    <ComicName className="my-4 text-center text-md-start px-md-3">
+                      {comic?.title ?? 'Loading...'}
+                    </ComicName>
                     <StyledSection className="my-2 py-2 px-2">
                       <p>{comic.description}</p>
                     </StyledSection>
                   </Col>
                 </Row>
 
-                <Issue className="d-flex px-4 py-4 my-5">
-                  <Row>
-                    <Col className="d-flex">
+                <Issue className="d-flex py-3 py-md-5 my-5">
+                  <Row className=" flex-column flex-md-row w-100 px-3">
+                    <Col className="d-flex col-md-4 ">
                       <Form.Group
-                        className="mb-3 col-md-4 px-5 w-100 "
+                        className=" px-3 px-lg-5 w-100 "
                         controlId="formBasicEmail"
                       >
                         <h5>PRINT ISSUE</h5>
                         <p>In Stores Now</p>
                         <Form.Control
-                          type="number"
+                          type="text"
                           placeholder="Enter zip code"
+                          maxLength={9}
                         />
 
                         <Button
@@ -96,21 +101,21 @@ const Comic: React.FC = () => {
                         </Button>
                       </Form.Group>
                     </Col>
-                    <Col className="d-flex">
-                      <div className="mb-3 col-md-6 border-start px-5 w-100">
+                    <Col className="d-flex col-md-6">
+                      <DigitalDiv className=" px-3 px-lg-5 pt-3 py-md-0 w-100">
                         <h5>DIGITAL ISSUE</h5>
-                        <p>
+                        <p style={{ fontSize: '0.8rem' }}>
                           Read online or on you iPhone, iPad or Android Device
                         </p>
                         <p>Digital issue is not currently available</p>
-                      </div>
+                      </DigitalDiv>
                     </Col>
                   </Row>
                 </Issue>
               </ComicDiv>
             </Container>
           </StyledDiv>
-        </ComicBg>
+        </ComicBanner>
       )}
 
       <Footer />

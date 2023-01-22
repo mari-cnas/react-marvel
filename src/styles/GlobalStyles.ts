@@ -23,6 +23,7 @@ footer {
 
 export const LoadingDiv = styled.div`
   min-height: 100vh;
+  background-color: black;
 `;
 
 export const Wrapper = styled.div`

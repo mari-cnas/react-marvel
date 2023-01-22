@@ -17,28 +17,25 @@ interface IComicCardProps {
 const ComicCard: React.FC<IComicCardProps> = ({ comic }) => {
   return (
     <ColoredCard className="flex-column  my-4 w-100">
-      <div>
+      <Link to={`/comics/${comic.id}/${strToSlug(comic.title)}`}>
+        <ComicImage
+          aspectRatio={150}
+          coverimage={getImageUrl(comic.thumbnail)}
+          className="mb-3"
+        >
+          <div />
+        </ComicImage>
+      </Link>
+      <Card.Body className="px-2 mb-1">
         <Link to={`/comics/${comic.id}/${strToSlug(comic.title)}`}>
-          <ComicImage
-            aspectRatio={150}
-            coverimage={getImageUrl(comic.thumbnail)}
-            className="my-4"
-          >
-            <div />
-          </ComicImage>
+          <Card.Title className="mb-3">{comic.title}</Card.Title>
         </Link>
-      </div>
-      <div>
-        <Card.Body>
-          <Link to={`/comics/${comic.id}/${strToSlug(comic.title)}`}>
-            <Card.Title>{comic.title}</Card.Title>
-          </Link>
-          <Card.Text>
-            <p className="my-0">Issue Number: {comic.issueNumber}</p>
-            <p>Format:{comic.format}</p>
-          </Card.Text>
-        </Card.Body>
-      </div>
+        <Card.Text style={{ color: '#949494' }}>
+          <p className="my-1">Issue Number: {comic.issueNumber}</p>
+
+          {comic?.format && <p>Format: {comic.format}</p>}
+        </Card.Text>
+      </Card.Body>
     </ColoredCard>
   );
 };

@@ -1,6 +1,6 @@
 import { memo, useEffect } from 'react';
 
-import { Container, Spinner } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 import { useCharacters } from 'context/CharactersContext';
@@ -16,7 +16,7 @@ import { LoadingDiv } from 'styles/GlobalStyles';
 
 import {
   CharacterBg,
-  CharacterContainer,
+  CharacterImg,
   CharacterName,
   StyledSection,
 } from './styled';
@@ -43,39 +43,41 @@ const Character: React.FC = () => {
       {isLoading && (
         <Container>
           <LoadingDiv className="d-flex aling-items-center justify-content-center">
-            <Spinner animation="grow" variant="primary" className="my-auto" />
+            <Spinner animation="border" variant="danger" className="my-auto" />
           </LoadingDiv>
         </Container>
       )}
       {!isLoading && character && (
         <>
-          <CharacterBg coverimage={getImageUrl(character.thumbnail)}>
-            <CharacterContainer className="d-flex h-100 align-items-center ">
+          <CharacterImg coverimage={getImageUrl(character.thumbnail)}>
+            <Container
+              className="d-flex justify-content-center align-items-center "
+              style={{ height: '400px' }}
+            >
               <CharacterName>{character?.name ?? 'Loading...'}</CharacterName>
-            </CharacterContainer>
+            </Container>
+          </CharacterImg>
+          <CharacterBg>
+            <Container>
+              <StyledSection className=" d-flex flex-column my-2 py-4 px-4 w-100">
+                <h6 className="mb-4">{character.description}</h6>
+                <Row>
+                  <Col>
+                    <h5>COMICS</h5>
+                    {character.comics.items.map((comic) => (
+                      <p>{comic.name}</p>
+                    ))}
+                  </Col>
+                  <Col>
+                    <h5>SERIES</h5>
+                    {character.series.items.map((comic) => (
+                      <p>{comic.name}</p>
+                    ))}
+                  </Col>
+                </Row>
+              </StyledSection>
+            </Container>
           </CharacterBg>
-          <CharacterContainer>
-            <StyledSection className=" d-flex flex-column my-2 py-2 px-2 w-100">
-              <p>
-                <span className="fw-bold">Description: </span>
-                {character.description}
-              </p>
-              <p>
-                <span className="fw-bold">Comics available: </span>
-                {character?.comics.available}
-              </p>
-
-              <p className="fw-bold">
-                {' '}
-                List containing comics which feature this character:
-              </p>
-              <p>
-                {character.comics.items.map((comic) => (
-                  <p>{comic.name}</p>
-                ))}
-              </p>
-            </StyledSection>
-          </CharacterContainer>
         </>
       )}
 

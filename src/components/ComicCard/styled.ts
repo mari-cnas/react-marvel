@@ -7,7 +7,7 @@ interface ICoverProps {
 }
 
 export const ColoredCard = styled.div`
-  color: black;
+  background-color: rgb(32, 35, 41);
 `;
 export const ComicImage = styled(Ratio)<ICoverProps>`
   background-image: ${({ coverimage }) => `url(${coverimage})`};

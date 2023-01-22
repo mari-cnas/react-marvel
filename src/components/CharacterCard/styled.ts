@@ -1,4 +1,4 @@
-import { Card, Ratio, Row } from 'react-bootstrap';
+import { Ratio } from 'react-bootstrap';
 import styled from 'styled-components';
 
 interface ICoverProps {

@@ -13,4 +13,8 @@ export type CharacterType = {
     available: number;
     items: ComicItemType[];
   };
+  series: {
+    available: number;
+    items: ComicItemType[];
+  };
 };
