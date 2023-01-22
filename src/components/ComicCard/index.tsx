@@ -30,11 +30,16 @@ const ComicCard: React.FC<IComicCardProps> = ({ comic }) => {
         <Link to={`/comics/${comic.id}/${strToSlug(comic.title)}`}>
           <Card.Title className="mb-3">{comic.title}</Card.Title>
         </Link>
+        {/* {comic?.format || comic?.issueNumber && ( */}
         <Card.Text style={{ color: '#949494' }}>
-          <p className="my-1">Issue Number: {comic.issueNumber}</p>
-
-          {comic?.format && <p>Format: {comic.format}</p>}
+          {comic?.issueNumber ? (
+            <p className="my-1">Issue Number: {comic.issueNumber}</p>
+          ) : (
+            ''
+          )}
+          {comic?.format ? <p>Format: {comic.format}</p> : ''}
         </Card.Text>
+        {/* )} */}
       </Card.Body>
     </ColoredCard>
   );
