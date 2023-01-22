@@ -13,4 +13,5 @@ export const CharacterImage = styled.div`
   background-position: top;
   display: flex;
   flex-grow: 1;
+  min-height: 330px;
 `;
