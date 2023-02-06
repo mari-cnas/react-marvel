@@ -100,12 +100,20 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="http://marvelentertainment.tumblr.com/">
+                <a
+                  href="http://marvelentertainment.tumblr.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <FaTumblr size={25} />
                 </a>
               </li>
               <li>
-                <a href="https://www.snapchat.com/add/marvelhq">
+                <a
+                  href="https://www.snapchat.com/add/marvelhq"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <BsSnapchat size={25} />
                 </a>
               </li>

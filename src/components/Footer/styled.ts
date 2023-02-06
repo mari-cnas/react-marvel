@@ -5,6 +5,7 @@ export const FooterBg = styled.div`
   background-color: rgb(32, 35, 41);
   display: flex;
   color: grey;
+  margin-top: auto;
 
   /* unvisited link */
   a:link {

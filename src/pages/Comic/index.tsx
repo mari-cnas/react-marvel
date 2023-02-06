@@ -12,12 +12,11 @@ import { getImageUrl } from 'helpers';
 
 import useTitle from 'hooks/useTitle';
 
-import { LoadingDiv } from 'styles/GlobalStyles';
+import { LoadingDiv, Wrapper } from 'styles/GlobalStyles';
 
 import {
-  ComicBanner,
   ComicBg,
-  ComicDiv,
+  ComicContainer,
   ComicImage,
   ComicName,
   DigitalDiv,
@@ -41,7 +40,7 @@ const Comic: React.FC = () => {
   }, [id]);
   // setIsLoading(false);
   return (
-    <>
+    <Wrapper>
       <Header />
 
       {isLoading && (
@@ -50,76 +49,69 @@ const Comic: React.FC = () => {
         </LoadingDiv>
       )}
       {!isLoading && comic && (
-        <ComicBanner
+        <ComicBg
           coverimage={getImageUrl(comic.thumbnail)}
-          className="d-flex flex-grow-1"
+          className="d-flex flex-column mt-auto "
         >
-          <StyledDiv className="w-100">
-            <Container className="d-flex  align-items-center ">
-              <ComicDiv className="d-flex flex-column w-100">
-                <Row>
-                  <Col className="d-flex" md={4}>
-                    <ComicImage
-                      aspectRatio={150}
-                      coverimage={getImageUrl(comic.thumbnail)}
-                      className="my-4 img-fluid"
+          <StyledDiv className="d-flex ">
+            <ComicContainer className="d-flex flex-column  ">
+              <Row>
+                <Col className="d-flex" md={4}>
+                  <ComicImage
+                    aspectRatio={150}
+                    coverimage={getImageUrl(comic.thumbnail)}
+                    className="my-4 img-fluid"
+                  >
+                    <div />
+                  </ComicImage>
+                </Col>
+                <Col md={5}>
+                  <ComicName className="my-4 text-center text-md-start px-md-3">
+                    {comic?.title ?? 'Loading...'}
+                  </ComicName>
+                  <StyledSection className="my-2 py-2 px-2">
+                    <p>{comic.description}</p>
+                  </StyledSection>
+                </Col>
+              </Row>
+              <Issue className="d-flex py-3 py-md-5 my-5">
+                <Row className=" flex-column flex-md-row w-100 px-3 ">
+                  <Col className="d-flex col-md-4 ">
+                    <Form.Group
+                      className=" px-3 px-lg-5 w-100 "
+                      controlId="formBasicEmail"
                     >
-                      <div />
-                    </ComicImage>
+                      <h5>PRINT ISSUE</h5>
+                      <p>In Stores Now</p>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter zip code"
+                        maxLength={9}
+                      />
+
+                      <Button variant="danger" type="submit" className=" my-2">
+                        Find a store
+                      </Button>
+                    </Form.Group>
                   </Col>
-                  <Col md={5}>
-                    <ComicName className="my-4 text-center text-md-start px-md-3">
-                      {comic?.title ?? 'Loading...'}
-                    </ComicName>
-                    <StyledSection className="my-2 py-2 px-2">
-                      <p>{comic.description}</p>
-                    </StyledSection>
+                  <Col className="d-flex col-md-6">
+                    <DigitalDiv className=" px-3 px-lg-5 pt-3 py-md-0 w-100">
+                      <h5>DIGITAL ISSUE</h5>
+                      <p style={{ fontSize: '0.8rem' }}>
+                        Read online or on you iPhone, iPad or Android Device
+                      </p>
+                      <p>Digital issue is not currently available</p>
+                    </DigitalDiv>
                   </Col>
                 </Row>
-
-                <Issue className="d-flex py-3 py-md-5 my-5">
-                  <Row className=" flex-column flex-md-row w-100 px-3">
-                    <Col className="d-flex col-md-4 ">
-                      <Form.Group
-                        className=" px-3 px-lg-5 w-100 "
-                        controlId="formBasicEmail"
-                      >
-                        <h5>PRINT ISSUE</h5>
-                        <p>In Stores Now</p>
-                        <Form.Control
-                          type="text"
-                          placeholder="Enter zip code"
-                          maxLength={9}
-                        />
-
-                        <Button
-                          variant="danger"
-                          type="submit"
-                          className=" my-2"
-                        >
-                          Find a store
-                        </Button>
-                      </Form.Group>
-                    </Col>
-                    <Col className="d-flex col-md-6">
-                      <DigitalDiv className=" px-3 px-lg-5 pt-3 py-md-0 w-100">
-                        <h5>DIGITAL ISSUE</h5>
-                        <p style={{ fontSize: '0.8rem' }}>
-                          Read online or on you iPhone, iPad or Android Device
-                        </p>
-                        <p>Digital issue is not currently available</p>
-                      </DigitalDiv>
-                    </Col>
-                  </Row>
-                </Issue>
-              </ComicDiv>
-            </Container>
+              </Issue>
+            </ComicContainer>
           </StyledDiv>
-        </ComicBanner>
+        </ComicBg>
       )}
 
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 

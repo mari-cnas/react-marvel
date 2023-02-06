@@ -1,3 +1,4 @@
+import { Container } from 'react-bootstrap';
 import styled from 'styled-components';
 
 interface ICoverProps {
@@ -23,7 +24,7 @@ export const CharacterImg = styled.section<ICoverProps>`
   height: 400px;
   background-blend-mode: darken;
 `;
-export const StyledSection = styled.section`
+export const CharacterInfos = styled(Container)`
   border-style: inset;
   border-width: 4px;
   display: flex;

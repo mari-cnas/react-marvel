@@ -12,13 +12,13 @@ import { getImageUrl } from 'helpers';
 
 import useTitle from 'hooks/useTitle';
 
-import { LoadingDiv } from 'styles/GlobalStyles';
+import { LoadingDiv, Wrapper } from 'styles/GlobalStyles';
 
 import {
   CharacterBg,
   CharacterImg,
+  CharacterInfos,
   CharacterName,
-  StyledSection,
 } from './styled';
 
 const Character: React.FC = () => {
@@ -37,7 +37,7 @@ const Character: React.FC = () => {
 
   // setIsLoading(false);
   return (
-    <>
+    <Wrapper>
       <Header />
 
       {isLoading && (
@@ -57,32 +57,30 @@ const Character: React.FC = () => {
               <CharacterName>{character?.name ?? 'Loading...'}</CharacterName>
             </Container>
           </CharacterImg>
-          <CharacterBg>
-            <Container>
-              <StyledSection className=" d-flex flex-column my-2 py-4 px-4 w-100">
-                <h6 className="mb-4">{character.description}</h6>
-                <Row>
-                  <Col>
-                    <h5>COMICS</h5>
-                    {character.comics.items.map((comic) => (
-                      <p>{comic.name}</p>
-                    ))}
-                  </Col>
-                  <Col>
-                    <h5>SERIES</h5>
-                    {character.series.items.map((comic) => (
-                      <p>{comic.name}</p>
-                    ))}
-                  </Col>
-                </Row>
-              </StyledSection>
-            </Container>
+          <CharacterBg className="d-flex flex-grow-1 justify-content-center align-items-center">
+            <CharacterInfos className=" d-flex flex-column my-2 py-4 px-4 w-100">
+              <h6 className="mb-4">{character.description}</h6>
+              <Row>
+                <Col>
+                  <h5>COMICS</h5>
+                  {character.comics.items.map((comic) => (
+                    <p>{comic.name}</p>
+                  ))}
+                </Col>
+                <Col>
+                  <h5>SERIES</h5>
+                  {character.series.items.map((comic) => (
+                    <p>{comic.name}</p>
+                  ))}
+                </Col>
+              </Row>
+            </CharacterInfos>
           </CharacterBg>
         </>
       )}
 
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 

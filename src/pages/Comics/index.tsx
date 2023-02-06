@@ -12,7 +12,7 @@ import Header from 'components/Header';
 
 import useTitle from 'hooks/useTitle';
 
-import { LoadingDiv } from 'styles/GlobalStyles';
+import { LoadingDiv, Wrapper } from 'styles/GlobalStyles';
 
 import { ComicsBg, MarvelPaginate, SearchInput } from './styled';
 
@@ -27,11 +27,12 @@ const Comics: React.FC = () => {
   }, [setTitle]);
 
   const [search, setSearch] = useState('');
+  const [hasSearch, setHasSearch] = useState(false);
 
-  const handleSearch = useCallback(
-    () => fetchComics(1, search),
-    [fetchComics, search],
-  );
+  const handleSearch = useCallback(() => {
+    fetchComics(1, search);
+    setHasSearch(true);
+  }, [fetchComics, search, setHasSearch]);
 
   const handlePageChange = useCallback(
     (page: number) => {
@@ -44,7 +45,8 @@ const Comics: React.FC = () => {
   const handleClean = useCallback(() => {
     fetchComics(1);
     setSearch('');
-  }, [fetchComics]);
+    setHasSearch(false);
+  }, [fetchComics, setHasSearch]);
 
   return (
     <>
@@ -82,17 +84,18 @@ const Comics: React.FC = () => {
                         type="button"
                         onClick={handleSearch}
                         className="me-1"
+                        disabled={!search?.length}
                       >
-                        <FaSearch />
+                        <FaSearch size={18} />
                       </Button>
-                      {search.length > 0 && (
+                      {hasSearch === true && (
                         <Button
                           variant="danger"
                           onClick={handleClean}
                           type="button"
                           className="me-1"
                         >
-                          <AiOutlineCloseCircle size={20} />
+                          <AiOutlineCloseCircle size={18} />
                         </Button>
                       )}
                     </div>
@@ -125,7 +128,9 @@ const Comics: React.FC = () => {
             </div>
           )}
           {!isLoading && !error && comics.length === 0 && (
-            <p>Nenhum resultado encontrado</p>
+            <Wrapper>
+              <p>Nenhum resultado encontrado</p>
+            </Wrapper>
           )}
         </Container>
       </ComicsBg>

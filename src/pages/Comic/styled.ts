@@ -1,15 +1,11 @@
-import { Form, Ratio } from 'react-bootstrap';
+import { Container, Form, Ratio } from 'react-bootstrap';
 import styled from 'styled-components';
 
 interface ICoverProps {
   coverimage: string;
 }
 
-export const ComicBg = styled.section<ICoverProps>`
-  background-color: black;
-`;
-
-export const ComicBanner = styled.section<ICoverProps>`
+export const ComicBg = styled.div<ICoverProps>`
   background: ${({ coverimage }) => `rgba(0, 0, 0, 0.7)url(${coverimage} ) `};
   background-size: cover;
   background-position: center center;
@@ -17,8 +13,7 @@ export const ComicBanner = styled.section<ICoverProps>`
   background-blend-mode: darken;
 `;
 
-export const ComicDiv = styled.div`
-  display: flex;
+export const ComicContainer = styled(Container)`
   color: white;
 `;
 

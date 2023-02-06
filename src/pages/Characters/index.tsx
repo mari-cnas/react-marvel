@@ -12,7 +12,7 @@ import Header from 'components/Header';
 
 import useTitle from 'hooks/useTitle';
 
-import { LoadingDiv } from 'styles/GlobalStyles';
+import { LoadingDiv, Wrapper } from 'styles/GlobalStyles';
 
 import { CharactersBg, MarvelPaginate, SearchInput } from './styled';
 
@@ -32,6 +32,7 @@ const Characters: React.FC = () => {
     setTitle('Characters');
   }, [setTitle]);
   const [search, setSearch] = useState('');
+  const [hasSearch, setHasSearch] = useState(false);
 
   const handlePageChange = useCallback(
     (page: number) => {
@@ -41,15 +42,16 @@ const Characters: React.FC = () => {
     [fetchCharacters, search],
   );
 
-  const handleSearch = useCallback(
-    () => fetchCharacters(1, search),
-    [fetchCharacters, search],
-  );
+  const handleSearch = useCallback(() => {
+    fetchCharacters(1, search);
+    setHasSearch(true);
+  }, [fetchCharacters, search, setHasSearch]);
 
   const handleClean = useCallback(() => {
     fetchCharacters(1);
     setSearch('');
-  }, [fetchCharacters]);
+    setHasSearch(false);
+  }, [fetchCharacters, setHasSearch]);
 
   return (
     <>
@@ -88,17 +90,18 @@ const Characters: React.FC = () => {
                         type="button"
                         onClick={handleSearch}
                         className="me-1"
+                        disabled={!search?.length}
                       >
                         <FaSearch size={18} />
                       </Button>
-                      {search.length > 0 && (
+                      {hasSearch === true && (
                         <Button
                           variant="danger"
                           onClick={handleClean}
                           type="button"
                           className="me-1"
                         >
-                          <AiOutlineCloseCircle size={20} />
+                          <AiOutlineCloseCircle size={18} />
                         </Button>
                       )}
                     </div>
@@ -132,7 +135,9 @@ const Characters: React.FC = () => {
             </div>
           )}
           {!isLoading && !error && characters.length === 0 && (
-            <p>Nenhum resultado encontrado</p>
+            <Wrapper>
+              <p>Nenhum resultado encontrado</p>
+            </Wrapper>
           )}
         </Container>
       </CharactersBg>
