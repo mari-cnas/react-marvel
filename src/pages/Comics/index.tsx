@@ -49,7 +49,7 @@ const Comics: React.FC = () => {
   }, [fetchComics, setHasSearch]);
 
   return (
-    <>
+    <Wrapper>
       <Header />
       <ComicsBg>
         <Container>
@@ -128,14 +128,14 @@ const Comics: React.FC = () => {
             </div>
           )}
           {!isLoading && !error && comics.length === 0 && (
-            <Wrapper>
-              <p>Nenhum resultado encontrado</p>
-            </Wrapper>
+            <p className="text-muted" style={{ fontSize: '2rem' }}>
+              Comic not found
+            </p>
           )}
         </Container>
       </ComicsBg>
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 

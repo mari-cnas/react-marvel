@@ -58,7 +58,7 @@ const Character: React.FC = () => {
             </Container>
           </CharacterImg>
           <CharacterBg className="d-flex flex-grow-1 justify-content-center align-items-center">
-            <CharacterInfos className=" d-flex flex-column my-2 py-4 px-4 w-100">
+            <CharacterInfos className=" d-flex flex-column my-5 py-4 px-4 w-100">
               <h6 className="mb-4">{character.description}</h6>
               <Row>
                 <Col>

@@ -54,7 +54,7 @@ const Characters: React.FC = () => {
   }, [fetchCharacters, setHasSearch]);
 
   return (
-    <>
+    <Wrapper>
       <Header />
       <CharactersBg>
         <Container>
@@ -135,14 +135,14 @@ const Characters: React.FC = () => {
             </div>
           )}
           {!isLoading && !error && characters.length === 0 && (
-            <Wrapper>
-              <p>Nenhum resultado encontrado</p>
-            </Wrapper>
+            <p className="text-muted" style={{ fontSize: '2rem' }}>
+              Character not found
+            </p>
           )}
         </Container>
       </CharactersBg>
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 
