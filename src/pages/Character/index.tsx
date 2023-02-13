@@ -60,7 +60,7 @@ const Character: React.FC = () => {
           <CharacterBg className="d-flex flex-grow-1 justify-content-center align-items-center">
             <CharacterInfos className=" d-flex flex-column my-5 py-4 px-4 w-100">
               <h6 className="mb-4">{character.description}</h6>
-              <Row>
+              <Row className="flex-column flex-md-row">
                 <Col>
                   <h5>COMICS</h5>
                   {character.comics.items.map((comic) => (
