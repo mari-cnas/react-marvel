@@ -73,7 +73,7 @@ const Comics: React.FC = () => {
                   <div className="d-flex justify-content-center justify-content-md-end ">
                     <SearchInput
                       type="text"
-                      placeholder="Buscar"
+                      placeholder="Search"
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
                       className="px-1 mx-1"
